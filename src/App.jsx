@@ -6,6 +6,7 @@ import Home from './pages/Home'
 import BuyCredit from './pages/BuyCredit'
 import Resultpg from './pages/Resultpg'
 import Navbar from './components/Navbar'
+import Footer from './components/Footer'
 
 
 
@@ -20,6 +21,7 @@ const App = () => {
   <Route path='/Resultpg' element={<Resultpg/>}/>
   <Route path='/Buy' element={ <BuyCredit/>}/>
 </Routes>
+<Footer/>
      
     </div>
   )
