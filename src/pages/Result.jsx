@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { assets } from '../assets/assets'
-
+import { AppContext } from '../context/AppContext'
+import { motion } from 'framer-motion'
 
 const Result = () => {
 
@@ -9,10 +10,20 @@ const Result = () => {
   const [isImageLoaded, setIsImageLoaded] = useState(false)
   const [image, setImage] = useState(assets.sample_img_1)
 
-  
+  const { generateImage } = useContext(AppContext)
 
   const onSubmitHandler = async (e) => {
-    
+    e.preventDefault()
+    setLoading(true)
+
+    if (input) {
+      const image = await generateImage(input)
+      if (image) {
+        setIsImageLoaded(true)
+        setImage(image)
+      }
+    }
+    setLoading(false)
   }
 
   return (
